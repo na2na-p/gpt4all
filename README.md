@@ -30,6 +30,18 @@ To compile for custom hardware, see our fork of the [Alpaca C++](https://github.
 
 Note: the full model on GPU (16GB of RAM required) performs much better in our qualitative evaluations.
 
+## Using with Docker
+
+```sh
+git clone --recurse-submodules https://github.com/nomic-ai/gpt4all.git
+git submodule update --init
+docker compose build
+docker compose run app /bin/bash
+
+# inside the container
+cd chat;./gpt4all-lora-quantized-linux-x86
+```
+
 # Reproducibility
 
 Trained LoRa Weights:
