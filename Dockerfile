@@ -3,7 +3,9 @@ FROM python:3.11.2-bullseye
 WORKDIR /
 
 RUN apt-get update \
-    && apt-get install -y cmake build-essential pkg-config libgoogle-perftools-dev
+    && apt-get install -y cmake build-essential pkg-config libgoogle-perftools-dev \
+    # HACK: fails because of too large git repo
+    && git config --global http.postBuffer 5368709120
 
 RUN git clone --recurse-submodules https://github.com/na2na-p/gpt4all.git app \
     && cd app \
